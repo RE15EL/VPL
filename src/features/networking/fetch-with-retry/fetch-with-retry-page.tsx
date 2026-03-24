@@ -65,7 +65,7 @@ export function FetchWithRetryPage() {
             </h1>
             <p className="max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
               Prueba para encapsular una llamada HTTP con reintentos,
-              cancelación controlada y una UI mínima para verificar el flujo.
+              cancelación controlada y una UI minimalista para verificar el flujo.
             </p>
           </div>
 
