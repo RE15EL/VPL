@@ -1,9 +1,12 @@
-import { House, SquaresFour } from "@phosphor-icons/react";
+import { HouseIcon, SquaresFourIcon } from "@phosphor-icons/react";
 import { NavLink, Outlet } from "react-router-dom";
 
 import { practiceCategoryGroups } from "@/app/catalog/practices";
 import { getPracticeHref, type PracticeStatus } from "@/app/catalog/types";
 import { cn } from "@/lib/utils";
+
+import { RotatingSlogan } from "../../components/rotating-slogan";
+import { brandSlogans } from "@/constants/brand-slogans";
 
 const statusLabel: Record<PracticeStatus, string> = {
   draft: "Draft",
@@ -19,23 +22,17 @@ const formatCategoryTitle = (value: string) =>
 
 export function AppShell() {
   return (
-    <div className="mx-auto grid min-h-svh w-full max-w-[1440px] lg:grid-cols-[300px_minmax(0,1fr)]">
+    <div className="mx-auto grid min-h-svh w-full max-w-360 lg:grid-cols-[300px_minmax(0,1fr)]">
       <aside className="border-b border-border/70 bg-sidebar/95 px-5 py-6 backdrop-blur lg:sticky lg:top-0 lg:h-svh lg:border-r lg:border-b-0 lg:px-6">
         <div className="flex items-start justify-between gap-4 border-b border-sidebar-border pb-5">
           <div className="space-y-2">
-            <p className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
-              Daily Prep
-            </p>
+            <RotatingSlogan items={brandSlogans} />
             <h1 className="max-w-[12ch] text-2xl leading-tight text-sidebar-foreground">
-              Technical Practice Lab
+              VPL | Vault Practice Lab
             </h1>
             <p className="max-w-[28ch] text-sm leading-6 text-muted-foreground">
-              Contenedor navegable para organizar soluciones, iteraciones y patrones reutilizables.
+              Práctica técnica con intención.
             </p>
-          </div>
-
-          <div className="hidden border border-sidebar-border bg-sidebar-accent px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-sidebar-foreground lg:block">
-            v1
           </div>
         </div>
 
@@ -46,18 +43,19 @@ export function AppShell() {
             className={({ isActive }) =>
               cn(
                 "flex items-center gap-3 border border-transparent px-3 py-2 text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors",
-                isActive && "border-sidebar-border bg-sidebar-accent text-sidebar-foreground",
+                isActive &&
+                  "border-sidebar-border bg-sidebar-accent text-sidebar-foreground",
               )
             }
           >
-            <House size={16} weight="duotone" />
+            <HouseIcon size={16} weight="duotone" />
             Catalog
           </NavLink>
 
           {practiceCategoryGroups.map((group) => (
             <section key={group.category} className="space-y-2">
               <div className="flex items-center gap-2 border-b border-dashed border-sidebar-border/90 pb-2">
-                <SquaresFour size={14} className="text-muted-foreground" />
+                <SquaresFourIcon size={14} className="text-muted-foreground" />
                 <h2 className="text-[11px] uppercase tracking-[0.28em] text-sidebar-foreground">
                   {formatCategoryTitle(group.category)}
                 </h2>

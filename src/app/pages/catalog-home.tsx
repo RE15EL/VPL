@@ -21,12 +21,10 @@ export function CatalogHomePage() {
         <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-3">
             <h1 className="text-3xl leading-tight text-foreground sm:text-4xl">
-              Navegacion escalable para centralizar tus pruebas tecnicas diarias.
+              Vault de retos y soluciones técnicas.
             </h1>
             <p className="max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
-              Cada solucion vive como una feature aislada, con ruta propia, estado y ownership claro.
-              El catalogo agrupa por categoria y la shell mantiene la navegacion estable mientras el
-              repositorio crece.
+              Una colección organizada de prácticas técnicas para resolver problemas, comparar enfoques y consolidar criterio.
             </p>
           </div>
 
@@ -49,12 +47,12 @@ export function CatalogHomePage() {
             <div className="flex items-center justify-between gap-4 border-b border-dashed border-border/80 pb-4">
               <div>
                 <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-                  Category
+                  Categoría
                 </p>
                 <h2 className="mt-2 text-xl text-foreground">{formatCategoryTitle(group.category)}</h2>
               </div>
               <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                {group.practices.length} entries
+                {group.practices.length} entrada
               </p>
             </div>
 
