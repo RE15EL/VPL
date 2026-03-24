@@ -1,18 +1,12 @@
-import { HouseIcon, SquaresFourIcon } from "@phosphor-icons/react";
+import { HouseIcon, NetworkIcon } from "@phosphor-icons/react";
 import { NavLink, Outlet } from "react-router-dom";
 
 import { practiceCategoryGroups } from "@/app/catalog/practices";
-import { getPracticeHref, type PracticeStatus } from "@/app/catalog/types";
+import { getPracticeHref } from "@/app/catalog/types";
 import { cn } from "@/lib/utils";
 
 import { RotatingSlogan } from "../../components/rotating-slogan";
 import { brandSlogans } from "@/constants/brand-slogans";
-
-const statusLabel: Record<PracticeStatus, string> = {
-  draft: "Draft",
-  "in-progress": "In progress",
-  completed: "Completed",
-};
 
 const formatCategoryTitle = (value: string) =>
   value
@@ -22,9 +16,9 @@ const formatCategoryTitle = (value: string) =>
 
 export function AppShell() {
   return (
-    <div className="mx-auto grid min-h-svh w-full max-w-360 lg:grid-cols-[300px_minmax(0,1fr)]">
-      <aside className="border-b border-border/70 bg-sidebar/95 px-5 py-6 backdrop-blur lg:sticky lg:top-0 lg:h-svh lg:border-r lg:border-b-0 lg:px-6">
-        <div className="flex items-start justify-between gap-4 border-b border-sidebar-border pb-5">
+    <div className="mx-auto grid min-h-svh w-full max-w-360 lg:grid-cols-[300px_minmax(0,1fr)] bg-red-200/70">
+      <aside className="border-b border-border/70 bg-sidebar/95 p-4 backdrop-blur lg:sticky lg:top-0 lg:h-svh lg:border-r lg:border-b-0 lg:px-6">
+        <div className="flex items-start justify-between gap-4 border-b border-sidebar-border md:py-6">
           <div className="space-y-2">
             <RotatingSlogan items={brandSlogans} />
             <h1 className="max-w-[12ch] text-2xl leading-tight text-sidebar-foreground">
@@ -49,13 +43,13 @@ export function AppShell() {
             }
           >
             <HouseIcon size={16} weight="duotone" />
-            Catalog
+            Catálogo
           </NavLink>
 
           {practiceCategoryGroups.map((group) => (
             <section key={group.category} className="space-y-2">
               <div className="flex items-center gap-2 border-b border-dashed border-sidebar-border/90 pb-2">
-                <SquaresFourIcon size={14} className="text-muted-foreground" />
+                <NetworkIcon size={14} className="text-muted-foreground" />
                 <h2 className="text-[11px] uppercase tracking-[0.28em] text-sidebar-foreground">
                   {formatCategoryTitle(group.category)}
                 </h2>
@@ -79,9 +73,6 @@ export function AppShell() {
                     }
                   >
                     <p className="text-sm leading-snug">{practice.title}</p>
-                    <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                      {statusLabel[practice.status]}
-                    </p>
                   </NavLink>
                 ))}
               </div>
@@ -91,7 +82,7 @@ export function AppShell() {
       </aside>
 
       <div className="min-w-0">
-        <main className="min-h-svh px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
+        <main className="min-h-svh p-4">
           <Outlet />
         </main>
       </div>
