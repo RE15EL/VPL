@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
 import heroImg from "@/assets/hero.png";
-import reactLogo from "@/assets/react.svg";
-import viteLogo from "@/assets/vite.svg";
+
 import { Button } from "@/components/ui/button";
 
 import { fetchWithRetry } from "./helpers/fetch-with-retry";
@@ -31,7 +30,10 @@ export function FetchWithRetryPage() {
 
         setData(result);
       } catch (requestError) {
-        if (requestError instanceof Error && requestError.name === "AbortError") {
+        if (
+          requestError instanceof Error &&
+          requestError.name === "AbortError"
+        ) {
           return;
         }
 
@@ -54,7 +56,7 @@ export function FetchWithRetryPage() {
     <section className="space-y-6">
       <header className="border border-border/80 bg-card/80 p-6 backdrop-blur">
         <p className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
-          Networking / Completed
+          Networking
         </p>
         <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="space-y-3">
@@ -62,22 +64,16 @@ export function FetchWithRetryPage() {
               Fetch with Retry + AbortController
             </h1>
             <p className="max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
-              Prueba para encapsular una llamada HTTP con reintentos, cancelacion controlada y una
-              UI minima para verificar el flujo.
+              Prueba para encapsular una llamada HTTP con reintentos,
+              cancelación controlada y una UI mínima para verificar el flujo.
             </p>
           </div>
 
           <div className="relative mx-auto h-45 w-45 shrink-0 lg:mx-0">
-            <img src={heroImg} className="absolute inset-0 m-auto w-42.5" alt="" />
             <img
-              src={reactLogo}
-              className="absolute left-1/2 top-8.5 h-7 transform-[translateX(-50%)_perspective(2000px)_rotateZ(300deg)_rotateX(44deg)_rotateY(39deg)_scale(1.4)]"
-              alt="React logo"
-            />
-            <img
-              src={viteLogo}
-              className="absolute left-1/2 top-26.75 h-6.5 w-auto [transform:translateX(-50%)_perspective(2000px)_rotateZ(300deg)_rotateX(40deg)_rotateY(39deg)_scale(0.8)]"
-              alt="Vite logo"
+              src={heroImg}
+              className="absolute inset-0 m-auto w-42.5"
+              alt=""
             />
           </div>
         </div>
@@ -90,7 +86,9 @@ export function FetchWithRetryPage() {
               <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
                 Runtime output
               </p>
-              <h2 className="mt-2 text-xl text-foreground">Primer item recibido</h2>
+              <h2 className="mt-2 text-xl text-foreground">
+                Primer item recibido
+              </h2>
             </div>
             <Button
               variant="outline"
@@ -109,7 +107,9 @@ export function FetchWithRetryPage() {
             )}
 
             {!loading && error && (
-              <p className="text-sm uppercase tracking-[0.2em] text-destructive">{error}</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-destructive">
+                {error}
+              </p>
             )}
 
             {!loading && !error && firstTodo && (
@@ -125,7 +125,9 @@ export function FetchWithRetryPage() {
             <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
               Pattern
             </p>
-            <h2 className="mt-2 text-lg text-foreground">What this practice validates</h2>
+            <h2 className="mt-2 text-lg text-foreground">
+              What this practice validates
+            </h2>
             <ul className="mt-4 space-y-3 text-sm leading-7 text-muted-foreground">
               <li>Retry loop configurable por intentos y delay.</li>
               <li>Cancelacion segura mediante AbortController.</li>
