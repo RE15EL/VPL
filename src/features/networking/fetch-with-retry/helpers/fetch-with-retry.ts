@@ -24,15 +24,13 @@ export const fetchWithRetry = async <T,>(
 
       return (await response.json()) as T;
     } catch (error) {
-      const isAbortError =
-        error instanceof Error && error.name === "AbortError";
+      const isAbortError = error instanceof Error && error.name === "AbortError";
 
       if (isAbortError) {
         throw error;
       }
 
-      const isLastAttempt = attempt === retries;
-      if (isLastAttempt) {
+      if (attempt === retries) {
         throw error;
       }
 
