@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 
 import heroImg from "@/assets/hero.png";
 
+import { CategoryCard } from "@/components/category-card";
 import { Button } from "@/components/ui/button";
+import { fetchWithRetry } from "@/helpers/fetch-with-retry";
 
 import type { ApiData } from "./types";
-import { fetchWithRetry } from "@/helpers/fetch-with-retry";
 
 export function FetchWithRetryPage() {
   const [data, setData] = useState<ApiData[] | null>(null);
@@ -54,32 +55,30 @@ export function FetchWithRetryPage() {
 
   return (
     <section className="space-y-6">
-      <section className="border border-border/80 bg-card/80 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur">
-        <p className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
-          Networking
-        </p>
+      <CategoryCard.Root>
+        <CategoryCard.Eyebrow>Networking</CategoryCard.Eyebrow>
 
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-2xl space-y-3">
-            <h2 className="text-2xl text-violet-300 sm:text-4xl">
+        <CategoryCard.Content>
+          <CategoryCard.Body>
+            <CategoryCard.Title>
               Fetch with Retry + AbortController
-            </h2>
+            </CategoryCard.Title>
 
-            <p className="max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
+            <CategoryCard.Description>
               Prueba para encapsular una llamada HTTP con reintentos y
               cancelación controlada en caso de fallo.
-            </p>
-          </div>
+            </CategoryCard.Description>
+          </CategoryCard.Body>
 
-          <div className="relative mx-auto h-45 w-45 shrink-0 lg:mx-0 ">
+          <CategoryCard.Media>
             <img
               src={heroImg}
               className="absolute inset-0 m-auto w-42.5"
               alt=""
             />
-          </div>
-        </div>
-      </section>
+          </CategoryCard.Media>
+        </CategoryCard.Content>
+      </CategoryCard.Root>
 
       <div className="grid gap-4 xl:grid-cols-[minmax(0,1.3fr)_minmax(320px,0.7fr)]">
         <article className="border border-border/80 bg-card/70 p-5">
@@ -92,10 +91,10 @@ export function FetchWithRetryPage() {
                 Primer item recibido
               </h2>
             </div>
-            
+
             <Button
               variant="outline"
-              className="uppercase tracking-[0.2em] bg-background/60!"
+              className="bg-background/60! uppercase tracking-[0.2em]"
               onClick={() => window.location.reload()}
             >
               Reload
