@@ -2,6 +2,10 @@
 
 Repository guidance for coding agents working in `pruebas_tecnicas`.
 
+## Mandatory Skill Usage
+
+- Use `$group-changes-and-commit` before analyzing, grouping, staging, or committing repository changes when the user asks to create one or more commits.
+
 ## Project Snapshot
 
 - Stack: React 19 + TypeScript + Vite + React Router + Tailwind CSS v4 + shadcn/ui.
@@ -150,6 +154,12 @@ Repository guidance for coding agents working in `pruebas_tecnicas`.
 - If build-affecting changes were made, also run `npm run build`.
 - If you add testing infrastructure, update `package.json` scripts and this file with exact single-test commands.
 - Keep PR/commit scope focused; avoid unrelated refactors.
+
+## Commit Workflow
+
+- Keep commit-specific instructions compact in this file and store the detailed grouping/staging workflow in the `$group-changes-and-commit` skill.
+- When the user asks to create commits, follow that skill before running `git commit`.
+- Prefer Conventional Commits format when appropriate: `type(scope): summary`.
 
 ## Quick Checklist for Agents
 
