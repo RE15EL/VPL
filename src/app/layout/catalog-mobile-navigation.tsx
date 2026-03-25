@@ -17,29 +17,30 @@ export function CatalogMobileNavigation() {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <header className="sticky top-0 z-30 flex items-center gap-3 border-b border-border/70 bg-background/90 px-4 py-3 backdrop-blur md:hidden">
-        <SheetTrigger asChild>
-          <Button
-            variant="outline"
-            size="sm"
-            className="uppercase tracking-[0.18em]"
-          >
-            <ListIcon />
-          </Button>
-        </SheetTrigger>
-
+      <header className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-border/70 bg-background/90 px-4 py-3 backdrop-blur md:hidden">
         <div className="min-w-0">
           <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
             Vault Practice Lab
           </p>
+
           <p className="truncate text-sm text-foreground">
             Catálogo de prácticas
           </p>
         </div>
+
+        <SheetTrigger asChild>
+          <Button
+            variant="outline"
+            size="sm"
+            className="uppercase tracking-[0.18em] bg-background/60!"
+          >
+            <ListIcon />
+          </Button>
+        </SheetTrigger>
       </header>
 
       <SheetContent
-        side="left"
+        side="right"
         className="w-[min(22rem,calc(100vw-1.5rem))] border-sidebar-border p-0 text-sidebar-foreground [&>button]:top-4 [&>button]:right-4 bg-background/90"
       >
         <SheetHeader className="sr-only">
