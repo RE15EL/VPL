@@ -39,12 +39,12 @@ export function CatalogHomePage() {
 
           <div className="flex justify-center items-center">
             <div className="flex md:flex-col md:gap-4 gap-px text-center text-xs uppercase tracking-[0.12em] sm:min-w-40">
-              <div className="bg-background/60 p-2 border border-border w-28">
-                <p className="text-xl text-violet-300">
+              <div className="bg-violet-300/40 p-2 border border-border w-28">
+                <p className="text-xl">
                   {practiceCategoryGroups.length}
                 </p>
 
-                <p className="text-muted-foreground">
+                <p className="">
                   {getCountLabel(
                     practiceCategoryGroups.length,
                     "Categoría",
@@ -53,11 +53,12 @@ export function CatalogHomePage() {
                 </p>
               </div>
 
-              <div className="bg-background/60 p-2 border border-border w-28">
-                <p className="text-xl text-violet-300">
+              <div className="bg-violet-300/40 p-2 border border-border w-28">
+                <p className="text-xl">
                   {practiceDefinitions.length}
                 </p>
-                <p className="mt-2 text-muted-foreground">
+
+                <p className="mt-2 ">
                   {getCountLabel(
                     practiceDefinitions.length,
                     "Práctica",
