@@ -4,7 +4,7 @@ import { SmartSearchCacheDebounce } from "./smart-search-page";
 export const smartSearchCacheDebouncePractice = {
   category: "performance",
   slug: "smart-search",
-  title: "Smart Search + Cache and Debounce",
+  title: "Smart Search + Cache + Debounce",
   status: "completed",
   component: SmartSearchCacheDebounce,
 } satisfies PracticeDefinition;

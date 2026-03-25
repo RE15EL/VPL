@@ -81,3 +81,11 @@ export type RandomUserResponse = {
   results: RandomUser[];
   info: RandomUserInfo;
 };
+
+export type SmartSearchUserRow = {
+  id: string;
+  avatarUrl: string;
+  fullName: string;
+  email: string;
+  phone: string;
+};
