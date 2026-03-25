@@ -4,8 +4,8 @@ import heroImg from "@/assets/hero.png";
 
 import { Button } from "@/components/ui/button";
 
-import { fetchWithRetry } from "./helpers/fetch-with-retry";
 import type { ApiData } from "./types";
+import { fetchWithRetry } from "@/helpers/fetch-with-retry";
 
 export function FetchWithRetryPage() {
   const [data, setData] = useState<ApiData[] | null>(null);
