@@ -90,16 +90,17 @@ export function FetchWithRetryPage() {
                 Primer item recibido
               </h2>
             </div>
+            
             <Button
               variant="outline"
-              className="uppercase tracking-[0.2em]"
+              className="uppercase tracking-[0.2em] bg-background/60!"
               onClick={() => window.location.reload()}
             >
               Reload
             </Button>
           </div>
 
-          <div className="mt-4 border border-border/70 bg-background/80 p-4">
+          <div className="mt-4 border border-border/70 bg-background/60 p-4">
             {loading && (
               <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
                 Cargando datos...
@@ -113,7 +114,7 @@ export function FetchWithRetryPage() {
             )}
 
             {!loading && !error && firstTodo && (
-              <pre className="overflow-x-auto text-sm leading-7 text-foreground">
+              <pre className="overflow-x-auto text-xs leading-7 text-foreground ">
                 {JSON.stringify(firstTodo, null, 2)}
               </pre>
             )}
@@ -126,12 +127,12 @@ export function FetchWithRetryPage() {
               Pattern
             </p>
             <h2 className="mt-2 text-lg text-foreground">
-              What this practice validates
+              Lo que valida esta práctica
             </h2>
             <ul className="mt-4 space-y-3 text-sm leading-7 text-muted-foreground">
               <li>Retry loop configurable por intentos y delay.</li>
-              <li>Cancelacion segura mediante AbortController.</li>
-              <li>Manejo explicito de estados loading, error y success.</li>
+              <li>Cancelación segura mediante AbortController.</li>
+              <li>Manejo explícito de estados loading, error y success.</li>
             </ul>
           </section>
 

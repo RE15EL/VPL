@@ -1,4 +1,4 @@
-import { ArrowRight } from "@phosphor-icons/react";
+import { ArrowRightIcon } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 
 import {
@@ -33,13 +33,13 @@ export function CatalogHomePage() {
           </div>
 
           <div className="grid grid-cols-2 gap-px border border-border bg-border text-center text-xs uppercase tracking-[0.22em] sm:min-w-72">
-            <div className="bg-card px-4 py-5">
+            <div className="bg-background/60 px-4 py-5">
               <p className="text-2xl text-foreground">
                 {practiceCategoryGroups.length}
               </p>
               <p className="mt-2 text-muted-foreground">Categorías</p>
             </div>
-            <div className="bg-card px-4 py-5">
+            <div className="bg-background/60 px-4 py-5">
               <p className="text-2xl text-foreground">
                 {practiceDefinitions.length}
               </p>
@@ -93,7 +93,7 @@ export function CatalogHomePage() {
                   >
                     <Link to={getPracticeHref(practice)}>
                       Open
-                      <ArrowRight size={14} />
+                      <ArrowRightIcon size={14} />
                     </Link>
                   </Button>
                 </div>
