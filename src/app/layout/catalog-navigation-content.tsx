@@ -4,15 +4,17 @@ import { NavLink, useLocation } from "react-router-dom";
 import { practiceCategoryGroups } from "@/app/catalog/practices";
 import { useCatalogNavigationStore } from "@/app/layout/catalog-navigation-store";
 import { getPracticeHref } from "@/app/catalog/types";
-import { RotatingSlogan } from "@/components/rotating-slogan";
+// import { RotatingSlogan } from "@/components/rotating-slogan";
+// import { brandSlogans } from "@/constants/brand-slogans";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { brandSlogans } from "@/constants/brand-slogans";
 import { cn } from "@/lib/utils";
+
+import { AppLogo } from "@/components/app-logo";
 
 const formatCategoryTitle = (value: string) =>
   value
@@ -23,11 +25,13 @@ const formatCategoryTitle = (value: string) =>
 export type CatalogNavigationContentProps = {
   onNavigate?: () => void;
   className?: string;
+  showHeader?: boolean;
 };
 
 export function CatalogNavigationContent({
   onNavigate,
   className,
+  showHeader = true,
 }: CatalogNavigationContentProps) {
   const location = useLocation();
   const openCategories = useCatalogNavigationStore(
@@ -39,17 +43,19 @@ export function CatalogNavigationContent({
 
   return (
     <div className={cn("flex min-h-full flex-col ", className)}>
-      <header className="border-b border-sidebar-border px-4 py-5 md:px-6  md:pt-10 md:pb-6">
-        <div className="space-y-2">
-          <RotatingSlogan items={brandSlogans} />
-          <h1 className="max-w-[12ch] text-2xl leading-tight text-sidebar-foreground">
-            VPL | Vault Practice Lab
-          </h1>
-          <p className="max-w-[28ch] text-sm leading-6 text-muted-foreground">
+      {showHeader && (
+        <header className="border-b border-sidebar-border p-4 md:px-6">
+          <div className="space-y-2 ">
+            <AppLogo onNavigate={onNavigate} />
+
+            {/* <RotatingSlogan items={brandSlogans} /> */}
+
+            {/* <p className="max-w-[28ch] text-sm leading-6 text-muted-foreground">
             Práctica técnica con intención.
-          </p>
-        </div>
-      </header>
+          </p> */}
+          </div>
+        </header>
+      )}
 
       <nav
         aria-label="Catalog navigation"

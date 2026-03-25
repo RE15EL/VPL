@@ -12,21 +12,15 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+import { AppLogo } from "@/components/app-logo";
+
 export function CatalogMobileNavigation() {
   const [open, setOpen] = useState(false);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <header className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-border/70 bg-background/90 px-4 py-3 backdrop-blur md:hidden">
-        <div className="min-w-0">
-          <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-            Vault Practice Lab
-          </p>
-
-          <p className="truncate text-sm text-foreground">
-            Catálogo de prácticas
-          </p>
-        </div>
+        <AppLogo ext onNavigate={() => setOpen(false)} />
 
         <SheetTrigger asChild>
           <Button
@@ -51,7 +45,10 @@ export function CatalogMobileNavigation() {
         </SheetHeader>
 
         <div className="h-full overflow-y-auto">
-          <CatalogNavigationContent onNavigate={() => setOpen(false)} />
+          <CatalogNavigationContent
+            onNavigate={() => setOpen(false)}
+            showHeader={false}
+          />
         </div>
       </SheetContent>
     </Sheet>

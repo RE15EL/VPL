@@ -14,6 +14,9 @@ const formatCategoryTitle = (value: string) =>
     .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
     .join(" ");
 
+const getCountLabel = (count: number, singular: string, plural: string) =>
+  count === 1 ? singular : plural;
+
 export function CatalogHomePage() {
   return (
     <div className="space-y-6">
@@ -37,13 +40,25 @@ export function CatalogHomePage() {
               <p className="text-2xl text-foreground">
                 {practiceCategoryGroups.length}
               </p>
-              <p className="mt-2 text-muted-foreground">Categorías</p>
+              <p className="mt-2 text-muted-foreground">
+                {getCountLabel(
+                  practiceCategoryGroups.length,
+                  "Categoría",
+                  "Categorías",
+                )}
+              </p>
             </div>
             <div className="bg-background/60 px-4 py-5">
               <p className="text-2xl text-foreground">
                 {practiceDefinitions.length}
               </p>
-              <p className="mt-2 text-muted-foreground">Prácticas</p>
+              <p className="mt-2 text-muted-foreground">
+                {getCountLabel(
+                  practiceDefinitions.length,
+                  "Práctica",
+                  "Prácticas",
+                )}
+              </p>
             </div>
           </div>
         </div>
@@ -62,7 +77,8 @@ export function CatalogHomePage() {
                 </p>
 
                 <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                  {group.practices.length} entrada
+                  {group.practices.length}{" "}
+                  {getCountLabel(group.practices.length, "entrada", "entradas")}
                 </p>
               </div>
 
