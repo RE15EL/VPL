@@ -1,5 +1,5 @@
 import type { PracticeDefinition } from "@/app/catalog/types";
-import { SmartSearchCacheDebounce } from "./smart-search-cache-debounce";
+import { SmartSearchCacheDebounce } from "./smart-search-page";
 
 export const smartSearchCacheDebouncePractice = {
   category: "performance",

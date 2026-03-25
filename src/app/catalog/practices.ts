@@ -1,7 +1,7 @@
 import { fetchWithRetryPractice } from "@/features/networking/fetch-with-retry";
 
 import type { PracticeCategoryGroup, PracticeDefinition } from "./types";
-import { smartSearchCacheDebouncePractice } from "@/features/performance";
+import { smartSearchCacheDebouncePractice } from "@/features/performance/smart-search";
 
 export const practiceDefinitions: PracticeDefinition[] = [fetchWithRetryPractice, smartSearchCacheDebouncePractice];
 
