@@ -67,7 +67,7 @@ export function CatalogNavigationContent({
           onClick={onNavigate}
           className={({ isActive }) =>
             cn(
-              "flex items-center gap-2 py-2 text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors pl-2",
+              "flex items-center gap-2 py-2 text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors pl-2 mb-2",
               isActive &&
                 "border-b border-violet-300! pb-1",
             )
@@ -81,7 +81,7 @@ export function CatalogNavigationContent({
           type="multiple"
           value={openCategories}
           onValueChange={setOpenCategories}
-          className="space-y-6"
+          className="space-y-0"
         >
           {practiceCategoryGroups.map((group) => (
             <AccordionItem
