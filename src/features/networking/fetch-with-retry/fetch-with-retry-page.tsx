@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import heroImg from "@/assets/hero.png";
+import vpl_fecth_retry from "@/assets/vpl_fecth_retry.png";
 
 import { CategoryCard } from "@/components/category-card";
 import { OutputCard } from "@/components/output-card";
@@ -73,7 +73,7 @@ export function FetchWithRetryPage() {
 
           <CategoryCard.Media>
             <img
-              src={heroImg}
+              src={vpl_fecth_retry}
               className="absolute inset-0 m-auto w-42.5"
               alt=""
             />

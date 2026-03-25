@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import logo from "@/assets/vtl_logo.png";
-import logoExt from "@/assets/vtl_logo_ext.png";
 import { cn } from "@/lib/utils";
+import vpl_logo from "@/assets/vpl_logo.png";
+import vpl_logo_ext from "@/assets/vpl_logo_ext.png";
 
 export const AppLogo = ({
   onNavigate,
@@ -21,7 +21,7 @@ export const AppLogo = ({
       onClick={onNavigate}
     >
       <img
-        src={ext ? logoExt : logo}
+        src={ext ? vpl_logo_ext : vpl_logo}
         alt="App Logo"
         className="object-contain w-20 h-20"
       />

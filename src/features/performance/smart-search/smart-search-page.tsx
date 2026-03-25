@@ -7,6 +7,8 @@ import type { SmartSearchUserRow } from "./types";
 import { UsersDataTable } from "./users-data-table";
 import { usersTableColumns } from "./users-table-columns";
 
+import vpl_smart_search from "@/assets/vpl_smart_search.png";
+
 export const SmartSearchCacheDebounce = () => {
   const { data, loading, error } = useFetchUsers({ results: 3 });
 
@@ -49,7 +51,13 @@ export const SmartSearchCacheDebounce = () => {
             </CategoryCard.Description>
           </CategoryCard.Body>
 
-          <CategoryCard.Media />
+          <CategoryCard.Media>
+            <img
+              src={vpl_smart_search}
+              className="absolute inset-0 m-auto w-42.5"
+              alt=""
+            />
+          </CategoryCard.Media>
         </CategoryCard.Content>
       </CategoryCard.Root>
 
