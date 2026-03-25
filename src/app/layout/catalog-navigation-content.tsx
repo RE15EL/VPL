@@ -59,7 +59,7 @@ export function CatalogNavigationContent({
 
       <nav
         aria-label="Catalog navigation"
-        className="flex-1 space-y-6 overflow-y-auto px-4 py-6 md:px-6"
+        className="flex-1 space-y-0 overflow-y-auto px-4 py-6 md:px-6"
       >
         <NavLink
           to="/"
@@ -67,9 +67,9 @@ export function CatalogNavigationContent({
           onClick={onNavigate}
           className={({ isActive }) =>
             cn(
-              "flex items-center gap-2 border border-transparent py-2 text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors",
+              "flex items-center gap-2 py-2 text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors pl-2",
               isActive &&
-                "border-sidebar-border bg-sidebar-accent text-sidebar-foreground pl-2",
+                "border-b border-violet-300! pb-1",
             )
           }
         >
@@ -89,21 +89,21 @@ export function CatalogNavigationContent({
               value={group.category}
               className="space-y-2 border-none"
             >
-              <AccordionTrigger className="cursor-pointer pb-2 hover:no-underline **:data-[slot=accordion-trigger-icon]:hidden">
+              <AccordionTrigger className="cursor-pointer pb-2 hover:no-underline **:data-[slot=accordion-trigger-icon]:hidden pl-2">
                 <div
                   className={cn(
                     "flex w-full items-center gap-2 text-left",
                     group.practices.some(
                       (practice) =>
                         getPracticeHref(practice) === location.pathname,
-                    ) && "pl-2",
+                    ) && "border-b border-violet-300! pb-1",
                   )}
                 >
                   <NetworkIcon size={14} className="text-muted-foreground" />
 
-                  <h2 className="text-xs uppercase tracking-[0.28em] text-sidebar-foreground">
+                  <h3 className="text-xs uppercase tracking-[0.28em] text-sidebar-foreground">
                     {formatCategoryTitle(group.category)}
-                  </h2>
+                  </h3>
 
                   <span className="ml-auto text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                     {group.practices.length}
@@ -122,12 +122,12 @@ export function CatalogNavigationContent({
                         cn(
                           "block border border-transparent px-3 py-3 transition-colors",
                           isActive
-                            ? "border-sidebar-border bg-sidebar-accent text-sidebar-foreground"
+                            ? "border-sidebar-border bg-violet-300/50 text-sidebar-foreground"
                             : "text-muted-foreground hover:border-sidebar-border/60 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground",
                         )
                       }
                     >
-                      <p className="text-sm leading-snug">{practice.title}</p>
+                      <p className="text-[12px] leading-snug">{practice.title}</p>
                     </NavLink>
                   ))}
                 </div>

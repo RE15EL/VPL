@@ -44,7 +44,7 @@ export function CatalogMobileNavigation() {
           </SheetDescription>
         </SheetHeader>
 
-        <div className="h-full overflow-y-auto">
+        <div className="h-full overflow-y-auto pt-4">
           <CatalogNavigationContent
             onNavigate={() => setOpen(false)}
             showHeader={false}

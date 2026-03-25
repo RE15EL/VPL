@@ -19,46 +19,52 @@ const getCountLabel = (count: number, singular: string, plural: string) =>
 
 export function CatalogHomePage() {
   return (
-    <div className="space-y-6">
+    <section className="space-y-6">
       <section className="border border-border/80 bg-card/80 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur">
-        <p className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
+        {/* badge */}
+        <p className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground ">
           Practice Catalog
         </p>
-        <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-3xl space-y-3">
-            <h1 className="text-3xl leading-tight text-foreground sm:text-4xl">
+
+        <div className="flex flex-col gap-4 md:flex-row">
+          <div className="max-w-2xl space-y-3 flex-1">
+            <h2 className="text-2xl leading-tight text-violet-300 sm:text-4xl">
               Repositorio de retos y soluciones técnicas.
-            </h1>
-            <p className="max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
+            </h2>
+            <p className="max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
               Una colección organizada de prácticas técnicas para resolver
               problemas, comparar enfoques y consolidar criterio.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-px border border-border bg-border text-center text-xs uppercase tracking-[0.22em] sm:min-w-72">
-            <div className="bg-background/60 px-4 py-5">
-              <p className="text-2xl text-foreground">
-                {practiceCategoryGroups.length}
-              </p>
-              <p className="mt-2 text-muted-foreground">
-                {getCountLabel(
-                  practiceCategoryGroups.length,
-                  "Categoría",
-                  "Categorías",
-                )}
-              </p>
-            </div>
-            <div className="bg-background/60 px-4 py-5">
-              <p className="text-2xl text-foreground">
-                {practiceDefinitions.length}
-              </p>
-              <p className="mt-2 text-muted-foreground">
-                {getCountLabel(
-                  practiceDefinitions.length,
-                  "Práctica",
-                  "Prácticas",
-                )}
-              </p>
+          <div className="flex justify-center items-center">
+            <div className="flex md:flex-col md:gap-4 gap-px text-center text-xs uppercase tracking-[0.12em] sm:min-w-40">
+              <div className="bg-background/60 p-2 border border-border w-28">
+                <p className="text-xl text-violet-300">
+                  {practiceCategoryGroups.length}
+                </p>
+
+                <p className="text-muted-foreground">
+                  {getCountLabel(
+                    practiceCategoryGroups.length,
+                    "Categoría",
+                    "Categorías",
+                  )}
+                </p>
+              </div>
+
+              <div className="bg-background/60 p-2 border border-border w-28">
+                <p className="text-xl text-violet-300">
+                  {practiceDefinitions.length}
+                </p>
+                <p className="mt-2 text-muted-foreground">
+                  {getCountLabel(
+                    practiceDefinitions.length,
+                    "Práctica",
+                    "Prácticas",
+                  )}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -70,7 +76,7 @@ export function CatalogHomePage() {
             key={group.category}
             className="border border-border/80 bg-card/70 p-5"
           >
-            <div className="border-b border-dashed border-border/80 pb-2">
+            <header className="border-b border-dashed border-border/80 pb-2">
               <div className="w-full flex items-center justify-between">
                 <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
                   Categoría
@@ -82,10 +88,10 @@ export function CatalogHomePage() {
                 </p>
               </div>
 
-              <h2 className="mt-2 text-xl text-foreground">
+              <h2 className="mt-2 text-xl text-violet-300">
                 {formatCategoryTitle(group.category)}
               </h2>
-            </div>
+            </header>
 
             <div className="mt-4 space-y-3">
               {group.practices.map((practice) => (
@@ -105,7 +111,7 @@ export function CatalogHomePage() {
                   <Button
                     asChild
                     variant="outline"
-                    className="uppercase tracking-[0.2em]"
+                    className="uppercase tracking-[0.2em] bg-background/60!"
                   >
                     <Link to={getPracticeHref(practice)}>
                       Open
@@ -118,6 +124,6 @@ export function CatalogHomePage() {
           </article>
         ))}
       </section>
-    </div>
+    </section>
   );
 }

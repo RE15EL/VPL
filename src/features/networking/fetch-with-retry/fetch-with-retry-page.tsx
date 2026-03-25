@@ -54,22 +54,24 @@ export function FetchWithRetryPage() {
 
   return (
     <section className="space-y-6">
-      <header className="border border-border/80 bg-card/80 p-6 backdrop-blur">
+      <section className="border border-border/80 bg-card/80 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur">
         <p className="text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
           Networking
         </p>
-        <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="space-y-3">
-            <h1 className="text-3xl text-foreground sm:text-4xl">
+
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-2xl space-y-3">
+            <h2 className="text-2xl text-violet-300 sm:text-4xl">
               Fetch with Retry + AbortController
-            </h1>
-            <p className="max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
-              Prueba para encapsular una llamada HTTP con reintentos,
-              cancelación controlada y una UI minimalista para verificar el flujo.
+            </h2>
+
+            <p className="max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
+              Prueba para encapsular una llamada HTTP con reintentos y
+              cancelación controlada en caso de fallo.
             </p>
           </div>
 
-          <div className="relative mx-auto h-45 w-45 shrink-0 lg:mx-0">
+          <div className="relative mx-auto h-45 w-45 shrink-0 lg:mx-0 ">
             <img
               src={heroImg}
               className="absolute inset-0 m-auto w-42.5"
@@ -77,7 +79,7 @@ export function FetchWithRetryPage() {
             />
           </div>
         </div>
-      </header>
+      </section>
 
       <div className="grid gap-4 xl:grid-cols-[minmax(0,1.3fr)_minmax(320px,0.7fr)]">
         <article className="border border-border/80 bg-card/70 p-5">
@@ -86,7 +88,7 @@ export function FetchWithRetryPage() {
               <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
                 Runtime output
               </p>
-              <h2 className="mt-2 text-xl text-foreground">
+              <h2 className="mt-2 text-xl text-violet-300">
                 Primer item recibido
               </h2>
             </div>
@@ -126,7 +128,7 @@ export function FetchWithRetryPage() {
             <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
               Pattern
             </p>
-            <h2 className="mt-2 text-lg text-foreground">
+            <h2 className="mt-2 text-lg text-violet-300">
               Lo que valida esta práctica
             </h2>
             <ul className="mt-4 space-y-3 text-sm leading-7 text-muted-foreground">
@@ -140,7 +142,7 @@ export function FetchWithRetryPage() {
             <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
               Endpoint
             </p>
-            <p className="mt-2 break-all text-sm leading-7 text-foreground">
+            <p className="mt-2 break-all text-sm leading-7 text-violet-300">
               https://jsonplaceholder.typicode.com/todos
             </p>
           </section>
