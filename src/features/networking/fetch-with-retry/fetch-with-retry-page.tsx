@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero.png";
 
 import { CategoryCard } from "@/components/category-card";
+import { OutputCard } from "@/components/output-card";
 import { Button } from "@/components/ui/button";
 import { fetchWithRetry } from "@/helpers/fetch-with-retry";
 
@@ -81,15 +82,11 @@ export function FetchWithRetryPage() {
       </CategoryCard.Root>
 
       <div className="grid gap-4 xl:grid-cols-[minmax(0,1.3fr)_minmax(320px,0.7fr)]">
-        <article className="border border-border/80 bg-card/70 p-5">
-          <div className="flex flex-col gap-4 border-b border-dashed border-border/80 pb-4 sm:flex-row sm:items-end sm:justify-between">
+        <OutputCard.Root>
+          <OutputCard.Header>
             <div>
-              <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-                Runtime output
-              </p>
-              <h2 className="mt-2 text-xl text-violet-300">
-                Primer item recibido
-              </h2>
+              <OutputCard.Eyebrow>Runtime output</OutputCard.Eyebrow>
+              <OutputCard.Title>Primer item recibido</OutputCard.Title>
             </div>
 
             <Button
@@ -99,28 +96,31 @@ export function FetchWithRetryPage() {
             >
               Reload
             </Button>
-          </div>
+          </OutputCard.Header>
 
-          <div className="mt-4 border border-border/70 bg-background/60 p-4">
+          <OutputCard.Content>
+            {/* loading preview */}
             {loading && (
               <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
                 Cargando datos...
               </p>
             )}
 
+            {/* error preview */}
             {!loading && error && (
               <p className="text-sm uppercase tracking-[0.2em] text-destructive">
                 {error}
               </p>
             )}
 
+            {/* result preview */}
             {!loading && !error && firstTodo && (
               <pre className="overflow-x-auto text-xs leading-7 text-foreground ">
                 {JSON.stringify(firstTodo, null, 2)}
               </pre>
             )}
-          </div>
-        </article>
+          </OutputCard.Content>
+        </OutputCard.Root>
 
         <aside className="space-y-4">
           <section className="border border-border/80 bg-card/70 p-5">
