@@ -155,12 +155,6 @@ Repository guidance for coding agents working in `pruebas_tecnicas`.
 - If you add testing infrastructure, update `package.json` scripts and this file with exact single-test commands.
 - Keep PR/commit scope focused; avoid unrelated refactors.
 
-## Commit Workflow
-
-- Keep commit-specific instructions compact in this file and store the detailed grouping/staging workflow in the `$group-changes-and-commit` skill.
-- When the user asks to create commits, follow that skill before running `git commit`.
-- Prefer Conventional Commits format when appropriate: `type(scope): summary`.
-
 ## Quick Checklist for Agents
 
 - Confirm instructions from this file + any future Cursor/Copilot rule files.
